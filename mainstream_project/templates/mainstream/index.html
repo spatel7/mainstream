@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mainstream - We all have our groups</title>
+	</head>
+	<body>
+		<font size='6'>Mainstream - We all have our groups</font><br>
+		People go to parties to socialize and have conversations, not <br />
+		share updates about their dog's new toy.<br>
+		{% for g in groups %}
+			<b>{{ g.name }}</b><br>
+			{% for s in g.get_streams %}
+				Topic: {{ s.topic }}<br>
+				Author: {{ s.author }}<br>
+				{% for p in s.get_posts %}
+					Post: {{ p.content }}<br>
+					Author: {{ p.author }}<br>
+				{% endfor %}
+				<br />
+			{% endfor %}
+		{% endfor %}
+	</body>
+</html>
