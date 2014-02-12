@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mainstream - We all have our groups</title>
+	</head>
+	<body>
+		<font size='6' color='black'><a href='/mainstream/' style='color: black;'>Mainstream</a> - Group</font><br>
+		This is a private group. Go nuts.<br>
+		<a href='/mainstream/'>Home</a><br><br>
+		{% if group %}
+			<strong>{{ group.name }}</strong><br>
+			{% if streams %}
+				<ul>
+					{% for stream in streams %}
+						Topic: {{ stream.topic }}<br>
+						Author: {{ stream.author }}<br>
+					{% endfor %}
+				</ul>
+			{% else %}
+				There are no streams here.
+			{% endif %}
+		{% else %}
+			This group does not exist!
+		{% endif %}
+	</body>
+</html>

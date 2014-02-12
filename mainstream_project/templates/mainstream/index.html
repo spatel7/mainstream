@@ -4,19 +4,24 @@
 		<title>Mainstream - We all have our groups</title>
 	</head>
 	<body>
-		<font size='6'>Mainstream - We all have our groups</font><br>
+		<font size='6' color='black'><a href='/mainstream/' style='color: black;'>Mainstream</a> - We all have our groups</font><br>
 		People go to parties to socialize and have conversations, not <br />
 		share updates about their dog's new toy.<br>
+		<a href='/mainstream/add_group/'>Create a group</a><br><br>
 		{% for g in groups %}
-			<b>{{ g.name }}</b><br>
+			<b><a href='/mainstream/group/{{ g.id }}/'>{{ g.name }}</a></b><br>
+			<a href='/mainstream/create_stream/'>Add a stream</a><br>
 			{% for s in g.get_streams %}
-				Topic: {{ s.topic }}<br>
-				Author: {{ s.author }}<br>
-				{% for p in s.get_posts %}
-					Post: {{ p.content }}<br>
-					Author: {{ p.author }}<br>
-				{% endfor %}
-				<br />
+				<div style='background-color: #f0f0f0; margin-top: 5px;'>
+					<font style='text-decoration: underline;'>Stream</font><br>
+					Topic: {{ s.topic }}<br>
+					Author: {{ s.author }}<br>
+					{% for p in s.get_posts %}
+						Post: {{ p.content }}<br>
+						Author: {{ p.author }}<br>
+					{% endfor %}
+					<a href='/mainstream/create_post/'>Write a post</a>
+				</div>
 			{% endfor %}
 		{% endfor %}
 	</body>
