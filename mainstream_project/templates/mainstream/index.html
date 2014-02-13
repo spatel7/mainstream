@@ -10,7 +10,7 @@
 		<a href='/mainstream/add_group/'>Create a group</a><br><br>
 		{% for g in groups %}
 			<b><a href='/mainstream/group/{{ g.id }}/'>{{ g.name }}</a></b><br>
-			<a href='/mainstream/create_stream/'>Add a stream</a><br>
+			<!--<a href='/mainstream/create_stream/'>Add a stream</a><br>
 			{% for s in g.get_streams %}
 				<div style='background-color: #f0f0f0; margin-top: 5px;'>
 					<font style='text-decoration: underline;'>Stream</font><br>
@@ -22,7 +22,7 @@
 					{% endfor %}
 					<a href='/mainstream/create_post/'>Write a post</a>
 				</div>
-			{% endfor %}
+			{% endfor %}-->
 		{% endfor %}
 	</body>
 </html>

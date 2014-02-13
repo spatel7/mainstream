@@ -10,12 +10,12 @@
 		{% if group %}
 			<strong>{{ group.name }}</strong><br>
 			{% if streams %}
-				<ul>
-					{% for stream in streams %}
+				{% for stream in streams %}
+					<div style='background-color: #f0f0f0; margin-top: 5px;'>
 						Topic: {{ stream.topic }}<br>
 						Author: {{ stream.author }}<br>
-					{% endfor %}
-				</ul>
+					</div>
+				{% endfor %}
 			{% else %}
 				There are no streams here.
 			{% endif %}

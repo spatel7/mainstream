@@ -9,8 +9,8 @@ def index(request):
 	context = RequestContext(request)
 	context_dict = {}
 	context_dict['groups'] = Group.objects.all()
-	context_dict['streams'] = Stream.objects.all()
-	context_dict['posts'] = Post.objects.all()
+	#context_dict['streams'] = Stream.objects.all()
+	#context_dict['posts'] = Post.objects.all()
 	return render_to_response("mainstream/index.html", context_dict, context)
 
 def group(request, group_id_url):
