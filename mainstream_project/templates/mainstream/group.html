@@ -9,11 +9,16 @@
 		<a href='/mainstream/'>Home</a><br><br>
 		{% if group %}
 			<strong>{{ group.name }}</strong><br>
+			<font style='text-decoration: underline;'>Members:</font>
+			{% for user in group.users.all %}
+				<span>{{ user.username }},</span>
+			{% endfor %}
+			<br>
 			{% if streams %}
 				{% for stream in streams %}
 					<div style='background-color: #f0f0f0; margin-top: 5px;'>
 						Topic: {{ stream.topic }}<br>
-						Author: {{ stream.author }}<br>
+						Author: {{ stream.user.username }}<br>
 					</div>
 				{% endfor %}
 			{% else %}

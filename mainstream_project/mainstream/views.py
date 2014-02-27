@@ -2,7 +2,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from mainstream.models import Group, Stream, Post
-from mainstream.forms import GroupForm
+from mainstream.forms import GroupForm, StreamForm, PostForm
+from django.contrib.auth.models import User
 from django.utils import timezone
 
 def index(request):
@@ -34,9 +35,14 @@ def add_group(request):
 			group = group_form.save(commit=False)
 			group.date = timezone.now()
 			group.save()
+			group.users.add(User.objects.get(username="spatel7"))
+			group.save()
 			return HttpResponseRedirect("/mainstream/")
 		else:
 			print group_form.errors
 	else:
 		group_form = GroupForm
 	return render_to_response("mainstream/add_group.html", {'group_form': group_form}, context)
+
+
+

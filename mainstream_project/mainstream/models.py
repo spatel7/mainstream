@@ -1,8 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Group(models.Model):
 	name = models.CharField(max_length=200)
 	date = models.DateTimeField("date created")
+	users = models.ManyToManyField(User)
 
 	def __unicode__(self):
 		return self.name
@@ -12,7 +14,7 @@ class Group(models.Model):
 
 class Stream(models.Model):
 	group = models.ForeignKey(Group)
-	author = models.CharField(max_length=200)
+	user = models.ForeignKey(User)
 	topic = models.CharField(max_length=200)
 	date = models.DateTimeField("date created")
 
@@ -24,7 +26,7 @@ class Stream(models.Model):
 
 class Post(models.Model):
 	stream = models.ForeignKey(Stream)
-	author = models.CharField(max_length=200)
+	user = models.ForeignKey(User)
 	content = models.CharField(max_length=200)
 	date = models.DateTimeField("date created")
 
