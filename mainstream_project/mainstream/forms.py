@@ -1,5 +1,6 @@
 from django import forms
 from mainstream.models import Group, Stream, Post
+from django.contrib.auth.models import User
 
 class GroupForm(forms.ModelForm):
 	class Meta:
