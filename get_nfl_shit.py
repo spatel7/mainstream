@@ -1,7 +1,7 @@
 import pymongo
 from pymongo import MongoClient
 
-client = MongoClient('mongodb://calendar:dF6ZyrRF7BZC6ICq@spoton.it:27272/') # this is for local. For production, I used MongoClient("spoton.it", 27272)
+client = MongoClient('mongodb://calendar:dF6ZyrRF7BZC6ICq calendar@spoton.it:27272/') # this is for local. For production, I used MongoClient("spoton.it", 27272)
 db = client["calendar"]
 nfl_teams = db.buttoncategories.find({"shortname": {"$regex": "nfl"}})
 activity_pools = [team['activities'] for team in nfl_teams]
